@@ -42,5 +42,5 @@ merged[,87] <- labels[merged[,87],2]
 
 # Create and save resulting data set 
 final_data <- ddply(merged, .(subject, activity), function(x) colMeans(x[,1:86]))
-write.table(final_data, "tidydata.txt", sep="\t")
+write.table(final_data, "tidydata.txt", sep="\t", row.name=FALSE)
 
