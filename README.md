@@ -6,14 +6,22 @@ The dataset  is: [Human Activity Recognition Using Smartphones](http://archive.i
 
 ## Files
 `run_analysis.R` contains all the code to perform the analyses described in the 5 steps. They can be launched in RStudio by just importing the file.
+
 `CodeBook.md` describes the source data, what was done to produce a tidy dataset, and the resulting variables.
+
 `tidydata.txt` is the resulting tidy data file.
+
 `README.md` is this file
 
 ## Intructions
-Download the data set from  `https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset` and extract into the R working directory. The files will be in a directory `UCI HAR Dataset `
+Download the data set from  `https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset` and extract into the R working directory.
+
+ The files will be in a directory `UCI HAR Dataset `
+
 Comment out or change `setwd("~/R")` to reflect your working directory
+
 Run the run_analysis.R script
+
 The tidydatafile.txt will be in the working directory
 
 
