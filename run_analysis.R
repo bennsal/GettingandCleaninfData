@@ -20,6 +20,11 @@ headings[,2] = gsub('-mean', 'Mean', headings[,2])
 headings[,2] = gsub('-std', 'Std', headings[,2])
 headings[,2] = gsub('[-()]', '', headings[,2])
 headings[,2] = gsub('[,()]', '', headings[,2])
+headings[,2] = gsub('BodyBody', 'Body', headings[,2]) # Mistake in source data file 
+headings[,2] = gsub('Meangravity', 'gravity', headings[,2]) # Mistake in source data file
+headings[,2] = gsub('^t', 'time', headings[,2])
+headings[,2] = gsub('^f', 'frequency', headings[,2])
+colnames(headings) <- tolower(colnames(headings))
 
 # Select columns for mean and sd
 columns_needed <- grep(".*Mean.*|.*Std.*", headings[,2])
@@ -35,12 +40,13 @@ merged <- merged[,columns_needed]
 
 # add column names
 colnames(merged) <- c(headings$V2, "activity", "subject")
-colnames(merged) <- tolower(colnames(merged))
 
 # add activity labels
 merged[,87] <- labels[merged[,87],2]
 
 # Create and save resulting data set 
 final_data <- ddply(merged, .(subject, activity), function(x) colMeans(x[,1:86]))
-write.table(final_data, "tidydata.txt", sep="\t", row.name=FALSE)
+write.table(final_data, "tidydata.csv", sep=",") # CSV file for further analysis
+write.table(final_data, "tidydata.txt", sep="\t", row.name=FALSE) # Text file for submission, no xo
+
 
