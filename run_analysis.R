@@ -1,6 +1,7 @@
 # Setup
 setwd("~/R")
-library(dplyr)
+library(plyr)
+
 # Read Data
 train <- read.table("UCI HAR Dataset/train/X_train.txt", sep="", header=FALSE )
 train[,562] <- read.table("UCI HAR Dataset/train/y_train.txt", sep="", header=FALSE )
@@ -17,6 +18,7 @@ merged = rbind(train, test)
 headings[,2] = gsub('-mean', 'Mean', headings[,2])
 headings[,2] = gsub('-std', 'Std', headings[,2])
 headings[,2] = gsub('[-()]', '', headings[,2])
+headings[,2] = gsub('[,()]', '', headings[,2])
 # Select columns for mean and sd
 columns_needed <- grep(".*Mean.*|.*Std.*", headings[,2])
 # Remove columns that are not wanted
@@ -26,11 +28,11 @@ columns_needed <- c(columns_needed, 562, 563)
 # remove unwanted columns in data field
 merged <- merged[,columns_needed]
 # add column names
-colnames(merged) <- c(headings$V2, "activity", "aubject")
+colnames(merged) <- c(headings$V2, "activity", "subject")
 colnames(merged) <- tolower(colnames(merged))
 # add activity labels
 merged[,87] <- labels[merged[,87],2]
 
-final_data <- ddply(merged, .(subject, sctivity), function(x) colMeans(x[,1:86]))
+final_data <- ddply(merged, .(subject, activity), function(x) colMeans(x[,1:86]))
 write.table(final_data, "tidydata.txt", sep="\t")
 
