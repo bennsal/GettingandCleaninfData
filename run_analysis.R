@@ -24,7 +24,7 @@ headings[,2] = gsub('BodyBody', 'Body', headings[,2]) # Mistake in source data f
 headings[,2] = gsub('Meangravity', 'gravity', headings[,2]) # Mistake in source data file
 headings[,2] = gsub('^t', 'time', headings[,2])
 headings[,2] = gsub('^f', 'frequency', headings[,2])
-colnames(headings) <- tolower(colnames(headings))
+
 
 # Select columns for mean and sd
 columns_needed <- grep(".*Mean.*|.*Std.*", headings[,2])
@@ -40,6 +40,7 @@ merged <- merged[,columns_needed]
 
 # add column names
 colnames(merged) <- c(headings$V2, "activity", "subject")
+colnames(headings) <- tolower(colnames(headings))
 
 # add activity labels
 merged[,87] <- labels[merged[,87],2]

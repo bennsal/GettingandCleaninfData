@@ -91,12 +91,11 @@ The tidydata file
 
 All data is normalised and bounded between 1 and -1
 Each row is a seperate subject/activity pair (30 subjects/ 6 activites = 180 rows)
-The 
 
 Columns:
 Subject  1:30
 Activity LAYING, STANDING, WALKING, WALKING_DOWNSTAIRS, WALKING_UPSTAIRS
-86 columns
+Columns of means standard deviation measurement as detailed above
 
 
 
