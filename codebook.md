@@ -83,6 +83,7 @@ Joins the train and test into one dataframe: merged
 Removes unwanted data leaving only meand and standard deviation columns
 Takes column headings from features.txt, tidies them, and adds to the merged dataframe
 Takes the activity data from activity_labels.txt and adds them to the merged dataframe
+Calculates the mean of each column and saves be subject and activity into final_data
 Writes a CSV file to the working directory containing the final data (tidydata.csv)
 Writes a text file to the working directory containing the final data for submission (tidydata.txt)
 
