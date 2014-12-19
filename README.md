@@ -20,9 +20,9 @@ The files will be in a directory `UCI HAR Dataset `
 
 Comment out or change `setwd("~/R")` to reflect your working directory
 
-Run the run_analysis.R script
+Run the `run_analysis.R` script
 
-The tidydatafile.txt will be in the working 
+The tidydatafile.txt will be in the working directory
 
 
 
