@@ -23,6 +23,3 @@ Comment out or change `setwd("~/R")` to reflect your working directory
 Run the `run_analysis.R` script
 
 The tidydatafile.txt will be in the working directory
-
-
-
